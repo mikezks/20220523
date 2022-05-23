@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/passenger/api-boarding",
+  "sourceRoot": "libs/passenger/api-boarding/src",
+  "prefix": "boarding",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/passenger/api-boarding"],
+      "options": {
+        "project": "libs/passenger/api-boarding/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/passenger/api-boarding/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/passenger/api-boarding/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/passenger/api-boarding"],
+      "options": {
+        "jestConfig": "libs/passenger/api-boarding/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/passenger/api-boarding/src/**/*.ts",
+          "libs/passenger/api-boarding/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["domain:passenger", "domain:passenger/api-boarding", "type:api"]
+}
